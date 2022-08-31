@@ -24,4 +24,3 @@ let galleryBox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-galleryBox.on('show.simplelightbox', function () {});
