@@ -8,7 +8,7 @@ let formData = JSON.parse(localStorage.getItem(FEEDBACK_KEY)) || {};
 feedbackForm.email.value = formData.email ?? '';
 feedbackForm.message.value = formData.message ?? '';
 
-isButtonActive.disabled = true;
+// isButtonActive.disabled = true;
 
 feedbackForm.addEventListener('input', throttle(newFormData, 500));
 function newFormData(e) {
