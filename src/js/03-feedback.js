@@ -1,9 +1,9 @@
-const throttle = require('lodash.throttle');
+import throttle from 'lodash.throttle';
 const feedbackForm = document.querySelector('.feedback-form');
 const isButtonActive = document.querySelector('button');
 const FEEDBACK_KEY = 'feedback-form-state';
 
-let formData = JSON.parse(localStorage.getItem(FEEDBACK_KEY)) || {};
+const formData = JSON.parse(localStorage.getItem(FEEDBACK_KEY)) || {};
 
 feedbackForm.email.value = formData.email ?? '';
 feedbackForm.message.value = formData.message ?? '';
@@ -23,7 +23,7 @@ function onClickFormSubmit(e) {
   e.preventDefault();
   e.target.reset();
   console.log(formData);
-  formData = {};
+
   localStorage.removeItem(FEEDBACK_KEY);
   isButtonActive.disabled = true;
 }
