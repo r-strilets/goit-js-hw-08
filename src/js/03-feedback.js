@@ -16,17 +16,8 @@ function newFormData(e) {
   }
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
 }
-document
-  .querySelector('button')
-  // try {
-  //   oldData =
 
-  //   feedbackForm.email.value = oldData.email;
-  //   feedbackForm.message.value = oldData.message;
-  // } catch (e) {
-  //   console.log('no data in locale storage');
-  // }
-  .feedbackForm.addEventListener('submit', onClickFormSubmit);
+feedbackForm.addEventListener('submit', onClickFormSubmit);
 function onClickFormSubmit(e) {
   e.preventDefault();
   e.target.reset();
