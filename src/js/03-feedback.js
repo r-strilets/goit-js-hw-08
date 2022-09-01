@@ -2,6 +2,7 @@ const throttle = require('lodash.throttle');
 const feedbackForm = document.querySelector('.feedback-form');
 const isButtonActive = document.querySelector('button');
 const FEEDBACK_KEY = 'feedback-form-state';
+
 let formData = JSON.parse(localStorage.getItem(FEEDBACK_KEY)) || {};
 
 feedbackForm.email.value = formData.email ?? '';
@@ -11,9 +12,8 @@ isButtonActive.disabled = true;
 
 feedbackForm.addEventListener('input', throttle(newFormData, 500));
 function newFormData(e) {
+  isButtonActive.disabled = false;
   formData[e.target.name] = e.target.value;
-
-  document.querySelector('button').disabled = false;
 
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
 }
@@ -25,5 +25,5 @@ function onClickFormSubmit(e) {
   console.log(formData);
   formData = {};
   localStorage.removeItem(FEEDBACK_KEY);
-  document.querySelector('button').disabled = true;
+  isButtonActive.disabled = true;
 }
