@@ -11,7 +11,7 @@ function newFormData(e) {
   localStorage.setItem(FEEDBACK_KEY, JSON.stringify(formData));
 }
 
-feedbackForm.addEventListener('submit', onClickFormSubmit, { once: true });
+feedbackForm.addEventListener('submit', onClickFormSubmit);
 
 function onClickFormSubmit(e) {
   e.preventDefault();
